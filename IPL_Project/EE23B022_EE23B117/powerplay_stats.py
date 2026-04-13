@@ -1,19 +1,25 @@
 """
-Train a Linear Regression model to predict 6-over powerplay runs
+Train an optimized Lasso Regression model to predict 6-over powerplay runs
 using batsman statistics, dismissal rates, and current match state.
+
+Optimizations Applied:
+- Outlier removal (IQR method)
+- Interaction feature engineering
+- Lasso regression (L1 regularization) for better generalization
 
 Features:
 - Striker's powerplay metrics (run_rate, std_dev, dismissal_rate)
 - Non-striker's powerplay metrics
 - Next incoming batsman's metrics (weighted by current dismissal rates)
 - Current run rate and wickets at end of 3 overs
+- Interaction features (run_rate × runs_at_3, wickets × run_rate, etc.)
 """
 
 import pandas as pd
 import numpy as np
 from collections import defaultdict
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Lasso
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.preprocessing import StandardScaler
 import pickle
@@ -26,48 +32,16 @@ batsman_stats_df = pd.read_csv('batsman_statistics_2022_2025.csv')
 batsman_stats = {}
 
 for _, row in batsman_stats_df.iterrows():
-    # If batsman has faced less than 50 powerplay balls, use total stats
-    if row['powerplay_balls_faced'] < 50:
-        # Use total statistics but name them as powerplay
-        batsman_stats[row['batter']] = {
-            'powerplay_run_rate': row['run_rate'],
-            'powerplay_avg_runs_per_ball': row['avg_runs_per_ball'],
-            'powerplay_std_dev_runs_per_ball': row['std_dev_runs_per_ball'],
-            'powerplay_dismissal_rate_per_100': row['dismissal_rate_per_100'],
-            'overall_run_rate': row['run_rate'],
-            'overall_dismissal_rate': row['dismissal_rate_per_100']
-        }
-    else:
-        # Use powerplay statistics
-        batsman_stats[row['batter']] = {
-            'powerplay_run_rate': row['powerplay_run_rate'],
-            'powerplay_avg_runs_per_ball': row['powerplay_avg_runs_per_ball'],
-            'powerplay_std_dev_runs_per_ball': row['powerplay_std_dev_runs_per_ball'],
-            'powerplay_dismissal_rate_per_100': row['powerplay_dismissal_rate_per_100'],
-            'overall_run_rate': row['run_rate'],
-            'overall_dismissal_rate': row['dismissal_rate_per_100']
-        }
+    batsman_stats[row['batter']] = {
+        'powerplay_run_rate': row['powerplay_run_rate'],
+        'powerplay_avg_runs_per_ball': row['powerplay_avg_runs_per_ball'],
+        'powerplay_std_dev_runs_per_ball': row['powerplay_std_dev_runs_per_ball'],
+        'powerplay_dismissal_rate_per_100': row['powerplay_dismissal_rate_per_100'],
+        'overall_run_rate': row['run_rate'],
+        'overall_dismissal_rate': row['dismissal_rate_per_100']
+    }
 
 print(f"Loaded statistics for {len(batsman_stats)} batsmen")
-
-# Compute average batsman statistics for fallback
-print("Computing average batsman statistics...")
-avg_run_rate = np.mean([stats['powerplay_run_rate'] for stats in batsman_stats.values()])
-avg_avg_runs_per_ball = np.mean([stats['powerplay_avg_runs_per_ball'] for stats in batsman_stats.values()])
-avg_std_dev = np.mean([stats['powerplay_std_dev_runs_per_ball'] for stats in batsman_stats.values()])
-avg_dismissal_rate = np.mean([stats['powerplay_dismissal_rate_per_100'] for stats in batsman_stats.values()])
-avg_overall_run_rate = np.mean([stats['overall_run_rate'] for stats in batsman_stats.values()])
-avg_overall_dismissal = np.mean([stats['overall_dismissal_rate'] for stats in batsman_stats.values()])
-
-# Create default/fallback batsman stats using averages
-default_batsman_stats = {
-    'powerplay_run_rate': avg_run_rate,
-    'powerplay_avg_runs_per_ball': avg_avg_runs_per_ball,
-    'powerplay_std_dev_runs_per_ball': avg_std_dev,
-    'powerplay_dismissal_rate_per_100': avg_dismissal_rate,
-    'overall_run_rate': avg_overall_run_rate,
-    'overall_dismissal_rate': avg_overall_dismissal
-}
 
 def parse_ball_by_ball_data():
     """Parse ipl_combined_cleaned.csv and extract powerplay 1st innings data."""
@@ -204,33 +178,22 @@ def create_training_data():
             balls_3 = state_3['balls']
             
             # Skip if missing critical data #meow
-            # if not striker or not non_striker or balls_3 < 18:  # At least 18 balls = 3 overs
-            #     continue
+            if not striker or not non_striker or balls_3 < 18:  # At least 18 balls = 3 overs
+                continue
             
-            # Get batsman stats - use powerplay metrics (fallback to average if not found)
+            # Get batsman stats - use powerplay metrics
             striker_stats = batsman_stats.get(striker)
             non_striker_stats = batsman_stats.get(non_striker)
             
-            # OLD LOGIC - Skip if missing stats (commented out, use fallback instead)
-            if not striker_stats: 
-                # continue
-                striker_stats =  default_batsman_stats
-                
-            
-            if not non_striker_stats:
+            if not striker_stats or not non_striker_stats:
                 continue
-                non_striker_stats =  default_batsman_stats
-                
             
-            # Get next incoming batter (fallback to average if not found)
+            # Get next incoming batter
             next_batter = get_next_incoming_batter(match_balls, striker, non_striker)
             next_batter_stats = None
             
             if next_batter:
                 next_batter_stats = batsman_stats.get(next_batter)
-                if not next_batter_stats:
-                    pass
-                    next_batter_stats = default_batsman_stats
             
             # Calculate current run rate
             current_run_rate = runs_3 / balls_3 if balls_3 > 0 else 0
@@ -329,9 +292,9 @@ def evaluate_simple_baseline_model_with_features(X, y):
     Uses runs_at_3_overs (feature index 10) and multiplies by 2.
     
     Feature indices (12 features total):
-    0-2: Striker
-    3-5: Non-striker
-    6-7: Next batter (weighted)
+    0-2: Striker (avg_per_ball, std_dev, dismissal_rate)
+    3-5: Non-striker (avg_per_ball, std_dev, dismissal_rate)
+    6-7: Next batter (avg_per_ball_weighted, dismissal_weighted)
     8: current_run_rate
     9: wickets_down
     10: runs_at_3_overs
@@ -368,8 +331,49 @@ def evaluate_simple_baseline_model_with_features(X, y):
     }
 
 
+def remove_outliers_iqr(X, y, multiplier=1.5):
+    """Remove outliers using IQR method"""
+    Q1 = np.percentile(y, 25)
+    Q3 = np.percentile(y, 75)
+    IQR = Q3 - Q1
+    
+    lower_bound = Q1 - multiplier * IQR
+    upper_bound = Q3 + multiplier * IQR
+    
+    mask = (y >= lower_bound) & (y <= upper_bound)
+    
+    removed_count = (~mask).sum()
+    if removed_count > 0:
+        print(f"\nOutlier Removal (IQR): Removed {removed_count} samples out of {len(y)}")
+    
+    return X[mask], y[mask]
+
+
+def add_interaction_features(X, feature_names):
+    """Add interaction features between key variables"""
+    X_interact = X.copy()
+    new_names = feature_names.copy()
+    
+    # Interaction 1: current_run_rate (index 8) * runs_at_3_overs (index 10)
+    interact_1 = X[:, 8] * X[:, 10]
+    X_interact = np.column_stack([X_interact, interact_1])
+    new_names.append('run_rate_x_runs_at_3')
+    
+    # Interaction 2: wickets_down (index 9) * current_run_rate (index 8)
+    interact_2 = X[:, 9] * X[:, 8]
+    X_interact = np.column_stack([X_interact, interact_2])
+    new_names.append('wickets_x_run_rate')
+    
+    # Interaction 3: striker_avg (index 0) * non_striker_avg (index 3)
+    interact_3 = X[:, 0] * X[:, 3]
+    X_interact = np.column_stack([X_interact, interact_3])
+    new_names.append('striker_x_non_striker')
+    
+    return X_interact, new_names
+
+
 def train_and_evaluate_model():
-    """Train linear regression model and evaluate"""
+    """Train optimized Lasso regression model with outlier removal and interaction features"""
     
     # Create training data
     X, y = create_training_data()
@@ -381,6 +385,20 @@ def train_and_evaluate_model():
     print(f"\nDataset shape: X={X.shape}, y={y.shape}")
     print(f"Target (6-over runs) - Min: {y.min():.2f}, Max: {y.max():.2f}, Mean: {y.mean():.2f}")
     
+    # OPTIMIZATION 1: Remove outliers
+    X, y = remove_outliers_iqr(X, y, multiplier=1.5)
+    print(f"After outlier removal: X={X.shape}, y={y.shape}")
+    
+    # OPTIMIZATION 2: Add interaction features
+    feature_names = [
+        'striker_avg_per_ball', 'striker_std_dev', 'striker_dismissal_rate',
+        'non_striker_avg_per_ball', 'non_striker_std_dev', 'non_striker_dismissal_rate',
+        'next_avg_per_ball_weighted', 'next_dismissal_weighted',
+        'current_run_rate', 'wickets_down', 'runs_at_3_overs', 'overs_completed'
+    ]
+    X, feature_names = add_interaction_features(X, feature_names)
+    print(f"After adding interactions: X={X.shape}")
+    
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
@@ -388,17 +406,18 @@ def train_and_evaluate_model():
     
     print(f"\nTrain set: {len(X_train)} samples")
     print(f"Test set: {len(X_test)} samples")
+    print(f"Total features: {X_train.shape[1]}")
     
-    # Normalize features (CRITICAL for interpreting coefficients)
+    # Normalize features
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     
-    print("\nFeature scaling applied (StandardScaler)")
+    print("Feature scaling applied (StandardScaler)")
     
-    # Train model
-    print("\nTraining Linear Regression model...")
-    model = LinearRegression()
+    # OPTIMIZATION 3: Train Lasso model with L1 regularization
+    print("\nTraining optimized Lasso Regression model...")
+    model = Lasso(alpha=0.1, max_iter=5000)
     model.fit(X_train_scaled, y_train)
     
     # Evaluate
@@ -426,21 +445,23 @@ def train_and_evaluate_model():
     print("\n" + "="*60)
     print("MODEL COEFFICIENTS")
     print("="*60)
-    feature_names = [
-        # Striker (3 features)
+    feature_names_coef = [
+        # Striker 
         'striker_avg_per_ball', 'striker_std_dev',
         'striker_dismissal_rate',
-        # Non-striker (3 features)
+        # Non-striker 
         'non_striker_avg_per_ball', 'non_striker_std_dev',
         'non_striker_dismissal_rate',
-        # Next batter (2 features, weighted)
+        # Next batter (weighted)
         'next_avg_per_ball_weighted', 'next_dismissal_weighted',
-        # Match state (4 features)
-        'current_run_rate', 'wickets_down', 'runs_at_3_overs', 'overs_completed'
+        # Match state
+        'current_run_rate', 'wickets_down', 'runs_at_3_overs', 'overs_completed',
+        # Interaction features
+        'run_rate_x_runs_at_3', 'wickets_x_run_rate', 'striker_x_non_striker'
     ]
     
     coef_df = pd.DataFrame({
-        'Feature': feature_names,
+        'Feature': feature_names_coef,
         'Coefficient': model.coef_
     }).sort_values('Coefficient', key=abs, ascending=False)
     
@@ -495,20 +516,28 @@ def train_and_evaluate_model():
     with open('powerplay_regression_model.pkl', 'wb') as f:
         pickle.dump(model, f)
     print("\nModel saved to powerplay_regression_model.pkl")
-        # Save scaler (needed for predictions on new data)
+    # Save scaler (needed for predictions on new data)
     with open('feature_scaler.pkl', 'wb') as f:
         pickle.dump(scaler, f)
     print("Feature scaler saved to feature_scaler.pkl")
-        # Save feature names
+    # Save feature names
     with open('feature_names.pkl', 'wb') as f:
-        pickle.dump(feature_names, f)
+        pickle.dump(feature_names_coef, f)
+    
+    print("\n" + "="*60)
+    print("OPTIMIZATION SUMMARY")
+    print("="*60)
+    print("✓ Applied outlier removal (IQR method)")
+    print("✓ Added interaction features (3 new features)")
+    print("✓ Used Lasso Regression (L1 regularization)")
+    print(f"\nFinal Test RMSE: {rmse_test:.4f} runs")
     
     return model, X_test, y_test, rmse_test
 
 
 if __name__ == "__main__":
     print("="*60)
-    print("POWERPLAY RUNS PREDICTION - LINEAR REGRESSION MODEL")
+    print("OPTIMIZED POWERPLAY RUNS PREDICTION - LASSO REGRESSION")
     print("="*60)
     
     model, X_test, y_test, rmse = train_and_evaluate_model()
