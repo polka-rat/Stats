@@ -27,7 +27,7 @@ def get_actual_6_over_score(match_balls):
                 break
             
             # Count runs from ball
-            runs += int(ball['runs_off_ball']) if pd.notna(ball['runs_off_ball']) else 0
+            runs += int(ball['runs_off_bat']) if pd.notna(ball['runs_off_bat']) else 0
             
             # Count extras
             runs += int(ball['extras']) if pd.notna(ball['extras']) else 0
@@ -56,9 +56,12 @@ def get_first_3_overs_csv(match_balls):
     
     # Filter for first 18 balls (3 overs * 6 balls)
     df['ball_num'] = pd.to_numeric(df['ball'], errors='coerce')
+
     df_3_overs = df[df['ball_num'] <= 18].copy()
     
     # Convert back to CSV string
+    print("Meoeoeoeoeoeooew")
+    print(df_3_overs.to_csv(index=False))
     return df_3_overs.to_csv(index=False)
 
 

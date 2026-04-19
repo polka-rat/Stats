@@ -1,4 +1,4 @@
-match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_ball,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket,other_player_dismissed
+match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket,other_player_dismissed
 1254058,2021,2021-04-09,"MA Chidambaram Stadium, Chepauk, Chennai",1,1,Mumbai Indians,Royal Challengers Bangalore,RG Sharma,CA Lynn,Mohammed Siraj,2,0,0,0,0,0,0,,,,
 1254058,2021,2021-04-09,"MA Chidambaram Stadium, Chepauk, Chennai",1,2,Mumbai Indians,Royal Challengers Bangalore,RG Sharma,CA Lynn,Mohammed Siraj,0,0,0,0,0,0,0,,,,
 1254058,2021,2021-04-09,"MA Chidambaram Stadium, Chepauk, Chennai",1,3,Mumbai Indians,Royal Challengers Bangalore,RG Sharma,CA Lynn,Mohammed Siraj,0,0,0,0,0,0,0,,,,
