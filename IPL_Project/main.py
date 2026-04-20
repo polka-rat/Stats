@@ -29,28 +29,21 @@ batsman_stats_df = pd.read_csv(os.path.join(dir, "batsman_statistics_2022_2026.c
 
 # Compute average stats BEFORE filling NaN (for use as replacement values)
 print("Computing average stats for NaN replacement...")
-avg_run_rate = batsman_stats_df['run_rate'].mean()
-avg_avg_runs_per_ball = batsman_stats_df['avg_runs_per_ball'].mean()
-avg_std_dev = batsman_stats_df['std_dev_runs_per_ball'].mean()
-avg_dismissal_rate = batsman_stats_df['dismissal_rate_per_100'].mean()
-avg_powerplay_run_rate = batsman_stats_df['powerplay_run_rate'].mean()
-avg_powerplay_avg_runs = batsman_stats_df['powerplay_avg_runs_per_ball'].mean()
-avg_powerplay_std_dev = batsman_stats_df['powerplay_std_dev_runs_per_ball'].mean()
-avg_powerplay_dismissal = batsman_stats_df['powerplay_dismissal_rate_per_100'].mean()
 
 batsman_stats = {}
+
 
 for _, row in batsman_stats_df.iterrows():
     # If batsman has faced less than 50 powerplay balls, use total stats
     if row['powerplay_balls_faced'] < 50:
         # Use total statistics but name them as powerplay
         batsman_stats[row['batter']] = {
-            'powerplay_run_rate': float(max(row['run_rate']-0.3,0.1)) if pd.notna(row['run_rate']) else avg_run_rate,
-            'powerplay_avg_runs_per_ball': float(max(row['avg_runs_per_ball']-0.3,0.1)) if pd.notna(row['avg_runs_per_ball']) else avg_avg_runs_per_ball,
-            'powerplay_std_dev_runs_per_ball': float(row['std_dev_runs_per_ball']) if pd.notna(row['std_dev_runs_per_ball']) else avg_std_dev,
-            'powerplay_dismissal_rate_per_100': float(row['dismissal_rate_per_100']+2) if pd.notna(row['dismissal_rate_per_100']) else avg_dismissal_rate,
-            'overall_run_rate': float(row['run_rate']) if pd.notna(row['run_rate']) else avg_run_rate,
-            'overall_dismissal_rate': float(row['dismissal_rate_per_100']) if pd.notna(row['dismissal_rate_per_100']) else avg_dismissal_rate
+            'powerplay_run_rate': float(max(row['run_rate']-0.2,0.1)) if pd.notna(row['run_rate']) else avg_run_rate,
+            'powerplay_avg_runs_per_ball': float(max(row['avg_runs_per_ball']-0.5,0.1)) if pd.notna(row['avg_runs_per_ball']) else avg_avg_runs_per_ball,
+            'powerplay_std_dev_runs_per_ball': float(max(row['std_dev_runs_per_ball']+0.2,0.5)) if pd.notna(row['std_dev_runs_per_ball']) else avg_std_dev,
+            'powerplay_dismissal_rate_per_100': float(min(row['dismissal_rate_per_100']+2, 70)) if pd.notna(row['dismissal_rate_per_100']) else avg_dismissal_rate,
+            'overall_run_rate': float(max(row['run_rate']-0.3,0.1)) if pd.notna(row['run_rate']) else avg_overall_run_rate,
+            'overall_dismissal_rate': float(min(row['dismissal_rate_per_100']+3, 70)) if pd.notna(row['dismissal_rate_per_100']) else avg_overall_dismissal
         }
     else:
         # Use powerplay statistics
@@ -64,15 +57,27 @@ for _, row in batsman_stats_df.iterrows():
         }
 
 print(f"Loaded statistics for {len(batsman_stats)} batsmen")
+avg_run_rate = np.mean([stats['powerplay_run_rate'] for stats in batsman_stats.values()])
+avg_avg_runs_per_ball = np.mean([stats['powerplay_avg_runs_per_ball'] for stats in batsman_stats.values()])
+avg_std_dev = np.mean([stats['powerplay_std_dev_runs_per_ball'] for stats in batsman_stats.values()])
+avg_dismissal_rate = np.mean([stats['powerplay_dismissal_rate_per_100'] for stats in batsman_stats.values()])
+avg_overall_run_rate = np.mean([stats['overall_run_rate'] for stats in batsman_stats.values()])
+avg_overall_dismissal = np.mean([stats['overall_dismissal_rate'] for stats in batsman_stats.values()])
+avg_powerplay_run_rate = batsman_stats_df['powerplay_run_rate'].mean()
+avg_powerplay_avg_runs = batsman_stats_df['powerplay_avg_runs_per_ball'].mean()
+avg_powerplay_std_dev = batsman_stats_df['powerplay_std_dev_runs_per_ball'].mean()
+avg_powerplay_dismissal = batsman_stats_df['powerplay_dismissal_rate_per_100'].mean()
 
-# Create default/fallback batsman stats using averages
+print("Oh my gawd")
+print(avg_run_rate, avg_avg_runs_per_ball, avg_std_dev, avg_dismissal_rate, avg_overall_run_rate, avg_overall_dismissal)
+# # Create default/fallback batsman stats using averages
 default_batsman_stats = {
     'powerplay_run_rate': max(avg_powerplay_run_rate-0.2, 0.1),
-    'powerplay_avg_runs_per_ball': max(avg_powerplay_avg_runs-0.2, 0.1),
+    'powerplay_avg_runs_per_ball': max(avg_powerplay_avg_runs-0.5, 0.1),
     'powerplay_std_dev_runs_per_ball': max(avg_powerplay_std_dev+0.2, 0.5),
     'powerplay_dismissal_rate_per_100': min(avg_powerplay_dismissal+2, 70),
-    'overall_run_rate': max(avg_run_rate-0.2, 0.1),
-    'overall_dismissal_rate': min(avg_dismissal_rate+2, 70)
+    'overall_run_rate': max(avg_run_rate-0.3, 0.1),
+    'overall_dismissal_rate': min(avg_dismissal_rate+3, 70)
 }
 
 print(f"Average stats computed for fallback")
@@ -89,17 +94,25 @@ def get_batting_state_at_over(match_balls, target_over):
     
     for ball in match_balls:
         try:
-            ball_num = int(ball['ball'])
-            over = (ball_num - 1) // 6
+            # Ball is now in format like 0.1, 1.2, 2.6, etc.
+            # Over number is the integer part
+            ball_float = float(ball['ball'])
+            over = int(ball_float)
             if over >= target_over:
                 break
             
             striker = ball['striker']
             non_striker = ball['non_striker']
             
-            # Accumulate runs
-            runs_so_far += ball['runs_off_bat']
-            runs_so_far += sum([ball.get(x, 0) or 0 for x in ['extras', 'wides', 'noballs', 'byes', 'legbyes']])
+            # Accumulate runs - safely convert to float
+            try:
+                runs_so_far += float(ball.get('runs_off_bat', 0) or 0)
+            except (ValueError, TypeError):
+                runs_so_far += 0
+            
+            # Add extras
+            runs_so_far += float(ball.get('extras', 0) or 0)
+
             
             # Count wickets
             if pd.notna(ball['wicket_type']) and ball['wicket_type']:
@@ -161,9 +174,16 @@ def predict(match_data, ball_by_ball_data):
     df = pd.read_csv(StringIO(ball_by_ball_data))
     
     # Convert runs and extras to numeric, replace NaNs with 0
-    df["runs_off_bat"] = pd.to_numeric(df["runs_off_bat"], errors="coerce").fillna(0)
-    print(f"bowowowow {df['runs_off_bat']}")
-    df["extras"] = pd.to_numeric(df["extras"], errors="coerce").fillna(0)
+    if "runs_off_bat" in df.columns:
+        df["runs_off_bat"] = pd.to_numeric(df["runs_off_bat"], errors="coerce").fillna(0).astype(float)
+    else:
+        df["runs_off_bat"] = 0.0
+    
+    for col in ["extras", "wides", "noballs", "byes", "legbyes"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0).astype(float)
+        else:
+            df[col] = 0.0
     
     # Convert to list of dictionaries for processing
     match_balls = [row.to_dict() for _, row in df.iterrows()]
@@ -196,19 +216,10 @@ def predict(match_data, ball_by_ball_data):
             # return None
             non_striker_stats = default_batsman_stats
         
-        # DEBUG: Check for NaN in batsman stats
-        # print(f"DEBUG: Striker '{striker}' stats:")
-        # for key, val in striker_stats.items():
-        #     print(f"  {key}: {val}")
-        # print(f"DEBUG: Non-striker '{non_striker}' stats:")
-        # for key, val in non_striker_stats.items():
-        #     print(f"  {key}: {val}")
-        
         # Check for NaN values in stats
         striker_has_nan = any(np.isnan(v) if isinstance(v, (int, float)) else False for v in striker_stats.values())
         non_striker_has_nan = any(np.isnan(v) if isinstance(v, (int, float)) else False for v in non_striker_stats.values())
         # if striker_has_nan or non_striker_has_nan:
-        #     print(f"WARNING: NaN detected in batsman stats!")
         
         # Get next incoming batter stats (fallback to average if not found)
         next_batter = get_next_incoming_batter(match_balls, striker, non_striker)
@@ -216,16 +227,12 @@ def predict(match_data, ball_by_ball_data):
         
         if next_batter:
             next_batter_stats = batsman_stats.get(next_batter, default_batsman_stats)
-            # print(f"DEBUG: Next batter '{next_batter}' stats:")
-            # for key, val in next_batter_stats.items():
-            #     print(f"  {key}: {val}")
         else:
             next_batter_stats = default_batsman_stats
-            # print("DEBUG: No next batter identified, using default stats")
         
         # Calculate current run rate
         current_run_rate = runs_3 / balls_3 if balls_3 > 0 else 0
-        
+    
         # Get dismissal rates (percentage values)
         striker_dismissal = striker_stats['powerplay_dismissal_rate_per_100']
         non_striker_dismissal = non_striker_stats['powerplay_dismissal_rate_per_100']
@@ -262,15 +269,7 @@ def predict(match_data, ball_by_ball_data):
         # Replace any NaN or inf values with sensible defaults
         features = [0.5 if (np.isnan(f) or np.isinf(f)) else f for f in features]
         
-        # DEBUG: Print features to identify NaN
-        # print("DEBUG: Features before scaling:")
-        # for i, f in enumerate(features):
-        #     print(f"  Feature {i}: {f}")
-        
         features_array = np.array(features).reshape(1, -1)
-        # print(f"\nDEBUG: Features array contains NaN: {np.isnan(features_array).any()}")
-        # if np.isnan(features_array).any():
-        #     print(f"DEBUG: NaN indices: {np.where(np.isnan(features_array))}")
         
         # Scale features using the trained scaler
         features_scaled = scaler.transform(features_array)

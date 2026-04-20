@@ -1,0 +1,306 @@
+===== MATCH 1529264 =====
+match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.1,Sunrisers Hyderabad,Rajasthan Royals,Abhishek Sharma,TM Head,JC Archer,0,0,,,,,,caught,Abhishek Sharma,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.2,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.3,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.4,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,2,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.5,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,0.6,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.1,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.2,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.3,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.4,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,4,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.5,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,1.6,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.1,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.2,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,4,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.3,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.4,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,6,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.5,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,2.6,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,JC Archer,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.1,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,4,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.2,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.3,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,N Burger,6,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.4,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,N Burger,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.5,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,3.6,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,N Burger,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.1,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,Sandeep Sharma,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.2,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,Sandeep Sharma,2,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.3,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,Sandeep Sharma,2,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.4,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,Sandeep Sharma,6,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.5,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,Sandeep Sharma,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,4.6,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,Sandeep Sharma,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.1,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,TU Deshpande,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.2,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,TU Deshpande,4,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.3,Sunrisers Hyderabad,Rajasthan Royals,Ishan Kishan,TM Head,TU Deshpande,1,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.4,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,TU Deshpande,0,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.5,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,TU Deshpande,4,0,,,,,,,,,
+
+1529264,2026,2026-04-13,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",1,5.6,Sunrisers Hyderabad,Rajasthan Royals,TM Head,Ishan Kishan,TU Deshpande,1,0,,,,,,,,,
+
+
+===== MATCH 1529265 =====
+match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.1,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.2,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.3,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.4,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,VG Arora,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.5,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,VG Arora,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,0.6,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,VG Arora,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.1,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,C Green,0,2,2.0,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.2,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,C Green,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.3,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,C Green,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.4,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,C Green,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.5,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,C Green,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.6,Chennai Super Kings,Kolkata Knight Riders,SV Samson,RD Gaikwad,C Green,0,1,,,,1.0,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,1.7,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,C Green,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.1,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,AS Roy,0,1,1.0,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.2,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,AS Roy,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.3,Chennai Super Kings,Kolkata Knight Riders,RD Gaikwad,SV Samson,AS Roy,0,0,,,,,,caught,RD Gaikwad,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.4,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.5,Chennai Super Kings,Kolkata Knight Riders,SV Samson,A Mhatre,AS Roy,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.6,Chennai Super Kings,Kolkata Knight Riders,SV Samson,A Mhatre,AS Roy,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,2.7,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.1,Chennai Super Kings,Kolkata Knight Riders,SV Samson,A Mhatre,C Green,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.2,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,C Green,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.3,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,C Green,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.4,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,C Green,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.5,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,C Green,6,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,3.6,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,C Green,6,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.1,Chennai Super Kings,Kolkata Knight Riders,SV Samson,A Mhatre,AS Roy,6,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.2,Chennai Super Kings,Kolkata Knight Riders,SV Samson,A Mhatre,AS Roy,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.3,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.4,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.5,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,4.6,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,AS Roy,1,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.1,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.2,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.3,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,4,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.4,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.5,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,0,0,,,,,,,,,
+
+1529265,2026,2026-04-14,"MA Chidambaram Stadium, Chepauk, Chennai",1,5.6,Chennai Super Kings,Kolkata Knight Riders,A Mhatre,SV Samson,VG Arora,0,0,,,,,,caught,A Mhatre,,
+
+
+===== MATCH 1529266 =====
+match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.1,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.2,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,4,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.3,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,2,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.4,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.5,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,B Kumar,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,0.6,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.1,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.2,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.3,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.4,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.5,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,1.6,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.1,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.2,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.3,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.4,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,B Kumar,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.5,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,2.6,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,B Kumar,6,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.1,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,Rasikh Salam,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.2,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,Rasikh Salam,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.3,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,Rasikh Salam,6,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.4,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,Rasikh Salam,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.5,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,AK Markram,Rasikh Salam,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,3.6,Lucknow Super Giants,Royal Challengers Bengaluru,AK Markram,MR Marsh,Rasikh Salam,0,0,,,,,,caught,AK Markram,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.1,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,RR Pant,JR Hazlewood,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.2,Lucknow Super Giants,Royal Challengers Bengaluru,RR Pant,MR Marsh,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.3,Lucknow Super Giants,Royal Challengers Bengaluru,RR Pant,MR Marsh,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.4,Lucknow Super Giants,Royal Challengers Bengaluru,RR Pant,MR Marsh,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.5,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,4.6,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,JR Hazlewood,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.1,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,N Pooran,Rasikh Salam,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.2,Lucknow Super Giants,Royal Challengers Bengaluru,MR Marsh,N Pooran,Rasikh Salam,1,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.3,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,Rasikh Salam,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.4,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,Rasikh Salam,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.5,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,Rasikh Salam,0,0,,,,,,,,,
+
+1529266,2026,2026-04-15,"M Chinnaswamy Stadium, Bengaluru",1,5.6,Lucknow Super Giants,Royal Challengers Bengaluru,N Pooran,MR Marsh,Rasikh Salam,1,0,,,,,,,,,
+
+
+===== MATCH 1529267 =====
+match_id,season,start_date,venue,innings,ball,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.1,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.2,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.3,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.4,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.5,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,0.6,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.1,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,M Jansen,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.2,Mumbai Indians,Punjab Kings,Q de Kock,RD Rickelton,M Jansen,6,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.3,Mumbai Indians,Punjab Kings,Q de Kock,RD Rickelton,M Jansen,0,4,,,,4.0,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.4,Mumbai Indians,Punjab Kings,Q de Kock,RD Rickelton,M Jansen,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.5,Mumbai Indians,Punjab Kings,Q de Kock,RD Rickelton,M Jansen,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,1.6,Mumbai Indians,Punjab Kings,Q de Kock,RD Rickelton,M Jansen,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.1,Mumbai Indians,Punjab Kings,RD Rickelton,Q de Kock,Arshdeep Singh,0,0,,,,,,caught,RD Rickelton,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.2,Mumbai Indians,Punjab Kings,SA Yadav,Q de Kock,Arshdeep Singh,0,0,,,,,,caught,SA Yadav,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.3,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.4,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Arshdeep Singh,2,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.5,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Arshdeep Singh,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,2.6,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Arshdeep Singh,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.1,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,XC Bartlett,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.2,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,XC Bartlett,4,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.3,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,XC Bartlett,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.4,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,XC Bartlett,2,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.5,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,XC Bartlett,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,3.6,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,XC Bartlett,2,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.1,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,M Jansen,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.2,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,M Jansen,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.3,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,M Jansen,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.4,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,M Jansen,4,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.5,Mumbai Indians,Punjab Kings,Q de Kock,Naman Dhir,M Jansen,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,4.6,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,M Jansen,1,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.1,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.2,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,4,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.3,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,0,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.4,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,4,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.5,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,6,0,,,,,,,,,
+
+1529267,2026,2026-04-16,"Wankhede Stadium, Mumbai",1,5.6,Mumbai Indians,Punjab Kings,Naman Dhir,Q de Kock,Vijaykumar Vyshak,1,0,,,,,,,,,

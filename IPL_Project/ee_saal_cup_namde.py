@@ -25,6 +25,8 @@ print("Loading batsman statistics...")
 batsman_stats_df = pd.read_csv('batsman_statistics_2022_2025.csv')
 batsman_stats = {}
 
+
+
 for _, row in batsman_stats_df.iterrows():
     # If batsman has faced less than 50 powerplay balls, use total stats
     if row['powerplay_balls_faced'] < 50:
@@ -58,16 +60,29 @@ avg_std_dev = np.mean([stats['powerplay_std_dev_runs_per_ball'] for stats in bat
 avg_dismissal_rate = np.mean([stats['powerplay_dismissal_rate_per_100'] for stats in batsman_stats.values()])
 avg_overall_run_rate = np.mean([stats['overall_run_rate'] for stats in batsman_stats.values()])
 avg_overall_dismissal = np.mean([stats['overall_dismissal_rate'] for stats in batsman_stats.values()])
-
+avg_powerplay_run_rate = batsman_stats_df['powerplay_run_rate'].mean()
+avg_powerplay_avg_runs = batsman_stats_df['powerplay_avg_runs_per_ball'].mean()
+avg_powerplay_std_dev = batsman_stats_df['powerplay_std_dev_runs_per_ball'].mean()
+avg_powerplay_dismissal = batsman_stats_df['powerplay_dismissal_rate_per_100'].mean()
 # Create default/fallback batsman stats using averages
 default_batsman_stats = {
-    'powerplay_run_rate': avg_run_rate,
+    'powerplay_run_rate': max(avg_powerplay_run_rate-0.3, 0.1),
+    # 'powerplay_run_rate': avg_run_rate,
     'powerplay_avg_runs_per_ball': avg_avg_runs_per_ball,
-    'powerplay_std_dev_runs_per_ball': avg_std_dev,
-    'powerplay_dismissal_rate_per_100': avg_dismissal_rate,
-    'overall_run_rate': avg_overall_run_rate,
-    'overall_dismissal_rate': avg_overall_dismissal
+    # 'powerplay_avg_runs_per_ball': max(avg_powerplay_avg_runs-0.6, 0.1),
+    # 'powerplay_std_dev_runs_per_ball': avg_std_dev,
+    'powerplay_std_dev_runs_per_ball': max(avg_powerplay_std_dev+0.2, 0.5),
+    'powerplay_dismissal_rate_per_100': min(avg_powerplay_dismissal+2, 70),
+    # 'powerplay_dismissal_rate_per_100': avg_dismissal_rate,
+    'overall_run_rate': max(avg_run_rate-0.3, 0.1),
+    # 'overall_run_rate': avg_overall_run_rate,
+    # 'overall_dismissal_rate': avg_overall_dismissal
+    'overall_dismissal_rate': min(avg_dismissal_rate+2, 70)
+    
 }
+
+
+
 
 def parse_ball_by_ball_data():
     """Parse ipl_combined_cleaned.csv and extract powerplay 1st innings data."""
@@ -84,8 +99,8 @@ def parse_ball_by_ball_data():
         try:
             match_id = row['match_id']
             batting_team = row['batting_team']
-            ball_num = int(row['ball'])
-            over = (ball_num - 1) // 6  # Convert ball number to over (0-based)
+            ball_float = float(row['ball'])
+            over = int(ball_float)  # Extract over number from 0.1-19.6 format
             
             # Keep only first 6 overs (0-5)
             if batting_team and over < 6:
@@ -108,17 +123,24 @@ def get_batting_state_at_over(match_balls, target_over):
     
     for ball in match_balls:
         try:
-            ball_num = int(ball['ball'])
-            over = (ball_num - 1) // 6
+            # Ball is now in format like 0.1, 1.2, 2.6, etc.
+            # Over number is the integer part
+            ball_float = float(ball['ball'])
+            over = int(ball_float)
             if over >= target_over:
                 break
             
             striker = ball['striker']
             non_striker = ball['non_striker']
             
-            # Accumulate runs
-            runs_so_far += ball['runs_off_ball']
-            runs_so_far += sum([ball.get(x, 0) or 0 for x in ['extras', 'wides', 'noballs', 'byes', 'legbyes']])
+            # Accumulate runs - safely convert to float
+            try:
+                runs_so_far += float(ball.get('runs_off_bat', 0) or 0)
+            except (ValueError, TypeError):
+                runs_so_far += 0
+            
+            # Add extras
+            runs_so_far += float(ball.get('extras', 0) or 0)   
             
             # Count wickets
             if pd.notna(ball['wicket_type']) and ball['wicket_type']:
@@ -142,11 +164,19 @@ def get_target_runs_at_over(match_balls, start_over, end_over):
     runs = 0
     for ball in match_balls:
         try:
-            ball_num = int(ball['ball'])
-            over = (ball_num - 1) // 6
+            # Ball is now in format like 0.1, 1.2, 2.6, etc.
+            # Over number is the integer part
+            ball_float = float(ball['ball'])
+            over = int(ball_float)
             if start_over <= over < end_over:
-                runs += ball['runs_off_ball']
-                runs += sum([ball.get(x, 0) or 0 for x in ['extras', 'wides', 'noballs', 'byes', 'legbyes']])
+                # Accumulate runs - safely convert to float
+                try:
+                    runs += float(ball.get('runs_off_bat', 0) or 0)
+                except (ValueError, TypeError):
+                    runs += 0
+                
+                # Add extras
+                runs += float(ball.get('extras', 0) or 0)
         except (ValueError, KeyError, TypeError):
             continue
     
@@ -218,7 +248,7 @@ def create_training_data():
                 
             
             if not non_striker_stats:
-                continue
+                # continue
                 non_striker_stats =  default_batsman_stats
                 
             
